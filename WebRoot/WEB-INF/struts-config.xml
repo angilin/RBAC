@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="LoginForm" type="com.rbac.form.system.LoginForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="LoginForm"
+      input="/login.jsp"
+      name="LoginForm"
+      path="/login"
+      scope="request"
+      type="com.rbac.action.system.LoginAction">
+      <forward name="success" path="/index.jsp" />
+    </action>
+
+  </action-mappings>
+
+  <message-resources parameter="config.ApplicationResources" />
+</struts-config>
+

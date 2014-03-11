@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="RBAC"
+  id="myeclipse.1386144814910"
+  context-root="/RBAC"
+  j2ee-spec="5.0"
+  archive="RBAC.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+
