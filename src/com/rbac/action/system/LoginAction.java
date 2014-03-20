@@ -7,6 +7,7 @@ package com.rbac.action.system;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -16,21 +17,20 @@ import com.rbac.entity.SysAccount;
 import com.rbac.form.system.LoginForm;
 import com.rbac.service.LoginService;
 
-/** 
- * MyEclipse Struts
- * Creation date: 12-20-2013
+/**
+ * MyEclipse Struts Creation date: 12-20-2013
  * 
  * XDoclet definition:
- * @struts.action path="/login" name="LoginForm" input="/login.jsp" scope="request" validate="true"
+ * 
+ * @struts.action path="/login" name="LoginForm" input="/login.jsp"
+ *                scope="request" validate="true"
  * @struts.action-forward name="success" path="/index.jsp"
  */
 public class LoginAction extends BaseAction {
-	/*
-	 * Generated Methods
-	 */
 
-	/** 
+	/**
 	 * Method execute
+	 * 
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -40,13 +40,18 @@ public class LoginAction extends BaseAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		LoginForm loginForm = (LoginForm) form;
-		LoginService loginService = (LoginService)super.getBean("loginService");
-		SysAccount account = loginService.login(loginForm.getUsername(), loginForm.getPassword());
-		if(account!=null){
-			request.getSession().setAttribute("user", account);
-			return mapping.findForward("success");
+		LoginService loginService = (LoginService) super
+				.getBean("loginService");
+		if (StringUtils.isNotBlank(loginForm.getPassword())) {
+			SysAccount account = loginService.login(loginForm.getUsername(),
+					loginForm.getPassword());
+			if (account != null) {
+				request.getSession().setAttribute("user", account);
+				return mapping.findForward("success");
+			}
 		}
 		request.setAttribute("errormsg", "用户名或密码不正确");
+		loginForm.setPassword("");
 		return mapping.getInputForward();
 	}
 }

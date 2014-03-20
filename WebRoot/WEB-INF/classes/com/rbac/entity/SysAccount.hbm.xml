@@ -6,18 +6,62 @@
 -->
 <hibernate-mapping>
     <class name="com.rbac.entity.SysAccount" table="sys_account" catalog="rbac">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="java.lang.Long">
             <column name="ID" />
-            <generator class="increment" />
+            <generator class="native" />
         </id>
         <property name="username" type="java.lang.String">
-            <column name="USERNAME" length="100" not-null="true" />
+            <column name="USERNAME" length="20" not-null="true">
+                <comment>用户登录名</comment>
+            </column>
         </property>
         <property name="password" type="java.lang.String">
-            <column name="PASSWORD" length="200" not-null="true" />
+            <column name="PASSWORD" length="100" not-null="true">
+                <comment>密码</comment>
+            </column>
         </property>
         <property name="realname" type="java.lang.String">
-            <column name="REALNAME" length="100" not-null="true" />
+            <column name="REALNAME" length="20">
+                <comment>用户显示名</comment>
+            </column>
         </property>
+        <property name="salt" type="java.lang.String">
+            <column name="SALT" length="100" not-null="true">
+                <comment>盐</comment>
+            </column>
+        </property>
+        <property name="isDeleted" type="java.lang.Short">
+            <column name="IS_DELETED" not-null="true">
+                <comment>删除标识位</comment>
+            </column>
+        </property>
+        <property name="creatorId" type="java.lang.Long">
+            <column name="CREATOR_ID">
+                <comment>创建者id</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="0">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="modifierId" type="java.lang.Long">
+            <column name="MODIFIER_ID">
+                <comment>修改者id</comment>
+            </column>
+        </property>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="0">
+                <comment>修改日期</comment>
+            </column>
+        </property>
+        <set name="sysAccountRoles" inverse="true">
+            <key>
+                <column name="ACCOUNT_ID">
+                    <comment>用户id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.rbac.entity.SysAccountRole" />
+        </set>
     </class>
 </hibernate-mapping>

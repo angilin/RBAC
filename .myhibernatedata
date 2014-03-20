@@ -1,5 +1,5 @@
 #
-#Wed Dec 04 18:09:07 CST 2013
+#Thu Mar 20 17:37:38 CST 2014
 genBasicCompId=false
 sessionFactoryName=factory.HibernateSessionFactory
 profile=
@@ -10,7 +10,7 @@ detectM2M=false
 reStrategyClass=
 springDaoFile=
 useJavaTypes=true
-keyGenerator=increment
+keyGenerator=native
 libInstallFolder=
 addLibs2Project=false
 genVersionTag=false

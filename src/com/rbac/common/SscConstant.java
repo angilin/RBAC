@@ -8,5 +8,8 @@ package com.rbac.common;
  */
 public class SscConstant {
 
-	public static final String USER = "com_sr_user";
+	public static final String USER = "com_user";
+	
+	public static final Short isDeleted = new Short("1");
+	public static final Short isNotDeleted = new Short("0");
 }
