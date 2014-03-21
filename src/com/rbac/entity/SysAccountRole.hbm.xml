@@ -20,7 +20,7 @@
                 <comment>角色id</comment>
             </column>
         </many-to-one>
-        <property name="isDeleted" type="java.lang.Short">
+        <property name="isDeleted" type="java.lang.Integer">
             <column name="IS_DELETED" not-null="true">
                 <comment>删除标识位</comment>
             </column>

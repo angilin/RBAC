@@ -5,13 +5,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>µÇÂ¼Ò³Ãæ</title>
 </head>
 <body>
-	µÇÂ¼ÓÃ»§Ãû:<c:out value="${sessionScope['user'].username}"></c:out>
+	ÓÃ»§µÇÂ¼Ãû:<c:out value="${sessionScope['user'].username}"></c:out>
 	<br/>
-	µÇÂ¼ÓÃ»§ÕæÊµÐÕÃû:<c:out value="${sessionScope['user'].realname}"></c:out>
+	ÓÃ»§ÏÔÊ¾Ãû:<c:out value="${sessionScope['user'].realname}"></c:out>
 </body>
 </html>
 

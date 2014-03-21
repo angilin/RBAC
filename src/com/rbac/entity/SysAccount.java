@@ -22,7 +22,7 @@ public class SysAccount implements java.io.Serializable {
 
 	private String salt;
 
-	private Short isDeleted;
+	private Integer isDeleted;
 
 	private Long creatorId;
 
@@ -42,7 +42,7 @@ public class SysAccount implements java.io.Serializable {
 
 	/** minimal constructor */
 	public SysAccount(String username, String password, String salt,
-			Short isDeleted) {
+			Integer isDeleted) {
 		this.username = username;
 		this.password = password;
 		this.salt = salt;
@@ -51,7 +51,7 @@ public class SysAccount implements java.io.Serializable {
 
 	/** full constructor */
 	public SysAccount(String username, String password, String realname,
-			String salt, Short isDeleted, Long creatorId, Date createTime,
+			String salt, Integer isDeleted, Long creatorId, Date createTime,
 			Long modifierId, Date modifyTime, Set sysAccountRoles) {
 		this.username = username;
 		this.password = password;
@@ -107,11 +107,11 @@ public class SysAccount implements java.io.Serializable {
 		this.salt = salt;
 	}
 
-	public Short getIsDeleted() {
+	public Integer getIsDeleted() {
 		return this.isDeleted;
 	}
 
-	public void setIsDeleted(Short isDeleted) {
+	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 

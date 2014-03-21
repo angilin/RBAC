@@ -18,7 +18,7 @@ public class SysRole implements java.io.Serializable {
 
 	private String roleDesc;
 
-	private Short isDeleted;
+	private Integer isDeleted;
 
 	private Long creatorId;
 
@@ -30,7 +30,7 @@ public class SysRole implements java.io.Serializable {
 
 	private Set sysAccountRoles = new HashSet(0);
 
-	private Set sysRoleActions = new HashSet(0);
+	private Set sysRoleMenus = new HashSet(0);
 
 	// Constructors
 
@@ -39,14 +39,14 @@ public class SysRole implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public SysRole(Short isDeleted) {
+	public SysRole(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 
 	/** full constructor */
-	public SysRole(String roleName, String roleDesc, Short isDeleted,
+	public SysRole(String roleName, String roleDesc, Integer isDeleted,
 			Long creatorId, Date createTime, Long modifierId, Date modifyTime,
-			Set sysAccountRoles, Set sysRoleActions) {
+			Set sysAccountRoles, Set sysRoleMenus) {
 		this.roleName = roleName;
 		this.roleDesc = roleDesc;
 		this.isDeleted = isDeleted;
@@ -55,7 +55,7 @@ public class SysRole implements java.io.Serializable {
 		this.modifierId = modifierId;
 		this.modifyTime = modifyTime;
 		this.sysAccountRoles = sysAccountRoles;
-		this.sysRoleActions = sysRoleActions;
+		this.sysRoleMenus = sysRoleMenus;
 	}
 
 	// Property accessors
@@ -84,11 +84,11 @@ public class SysRole implements java.io.Serializable {
 		this.roleDesc = roleDesc;
 	}
 
-	public Short getIsDeleted() {
+	public Integer getIsDeleted() {
 		return this.isDeleted;
 	}
 
-	public void setIsDeleted(Short isDeleted) {
+	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 
@@ -132,12 +132,12 @@ public class SysRole implements java.io.Serializable {
 		this.sysAccountRoles = sysAccountRoles;
 	}
 
-	public Set getSysRoleActions() {
-		return this.sysRoleActions;
+	public Set getSysRoleMenus() {
+		return this.sysRoleMenus;
 	}
 
-	public void setSysRoleActions(Set sysRoleActions) {
-		this.sysRoleActions = sysRoleActions;
+	public void setSysRoleMenus(Set sysRoleMenus) {
+		this.sysRoleMenus = sysRoleMenus;
 	}
 
 }

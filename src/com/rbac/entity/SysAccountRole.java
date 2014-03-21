@@ -16,7 +16,7 @@ public class SysAccountRole implements java.io.Serializable {
 
 	private SysRole sysRole;
 
-	private Short isDeleted;
+	private Integer isDeleted;
 
 	private Long creatorId;
 
@@ -33,14 +33,14 @@ public class SysAccountRole implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public SysAccountRole(Short isDeleted) {
+	public SysAccountRole(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 
 	/** full constructor */
 	public SysAccountRole(SysAccount sysAccount, SysRole sysRole,
-			Short isDeleted, Long creatorId, Date createTime, Long modifierId,
-			Date modifyTime) {
+			Integer isDeleted, Long creatorId, Date createTime,
+			Long modifierId, Date modifyTime) {
 		this.sysAccount = sysAccount;
 		this.sysRole = sysRole;
 		this.isDeleted = isDeleted;
@@ -76,11 +76,11 @@ public class SysAccountRole implements java.io.Serializable {
 		this.sysRole = sysRole;
 	}
 
-	public Short getIsDeleted() {
+	public Integer getIsDeleted() {
 		return this.isDeleted;
 	}
 
-	public void setIsDeleted(Short isDeleted) {
+	public void setIsDeleted(Integer isDeleted) {
 		this.isDeleted = isDeleted;
 	}
 

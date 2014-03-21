@@ -11,12 +11,21 @@
             <generator class="native" />
         </id>
         <property name="name" type="java.lang.String">
-            <column name="NAME" length="20" />
+            <column name="NAME" length="20">
+                <comment>权限名称</comment>
+            </column>
         </property>
         <property name="url" type="java.lang.String">
-            <column name="URL" length="50" />
+            <column name="URL" length="50">
+                <comment>权限url</comment>
+            </column>
         </property>
-        <property name="isDeleted" type="java.lang.Short">
+        <property name="needCheck" type="java.lang.Integer">
+            <column name="NEED_CHECK">
+                <comment>是否需要验证</comment>
+            </column>
+        </property>
+        <property name="isDeleted" type="java.lang.Integer">
             <column name="IS_DELETED" not-null="true">
                 <comment>删除标识位</comment>
             </column>
@@ -41,23 +50,13 @@
                 <comment>修改日期</comment>
             </column>
         </property>
-        <set name="sysRoleActions" inverse="true">
+        <set name="sysMenuActions" inverse="true">
             <key>
-                <column name="ACTION_ID" />
+                <column name="ACTION_ID">
+                    <comment>权限id</comment>
+                </column>
             </key>
-            <one-to-many class="com.rbac.entity.SysRoleAction" />
-        </set>
-        <set name="sysActionRelatesForActionId" inverse="true">
-            <key>
-                <column name="ACTION_ID" />
-            </key>
-            <one-to-many class="com.rbac.entity.SysActionRelate" />
-        </set>
-        <set name="sysActionRelatesForRelateActionId" inverse="true">
-            <key>
-                <column name="RELATE_ACTION_ID" />
-            </key>
-            <one-to-many class="com.rbac.entity.SysActionRelate" />
+            <one-to-many class="com.rbac.entity.SysMenuAction" />
         </set>
     </class>
 </hibernate-mapping>
