@@ -1,20 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="java" pageEncoding="GBK"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<title>RBACฯตอณตวยผาณรๆ</title>
+<title>RBAC็ณป็ป็ปๅฝ•้กต้ข</title>
 </head>
 <body>
 	<html:form action="login.do">
 		<div style="margin:0px auto;width:300px;">
-			<h1>RBACฯตอณ</h1>
-			<div>ำรปงร๛ฃบ<html:text property="username"/></div>
-			<div>รÜ&nbsp;&nbsp;ย๋ฃบ<html:password property="password"/></div>
-			<center><html:submit property="submit" value="ตวยผ"/></center>
+			<h1>RBAC็ณป็ป</h1>
+			<div>็”จๆทๅ๏ผ<html:text property="username"/></div>
+			<div>ๅฏ&nbsp;&nbsp;็ ๏ผ<html:password property="password"/></div>
+			<center><html:submit property="submit" value="็ปๅฝ•"/></center>
 			<div><font color="red">${errormsg}</font></div>
 		</div>
 	</html:form>

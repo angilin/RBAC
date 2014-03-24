@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseAction;
+import com.rbac.common.SscConstant;
 import com.rbac.entity.SysAccount;
 import com.rbac.form.system.LoginForm;
 import com.rbac.service.LoginService;
@@ -46,11 +47,11 @@ public class LoginAction extends BaseAction {
 			SysAccount account = loginService.login(loginForm.getUsername(),
 					loginForm.getPassword());
 			if (account != null) {
-				request.getSession().setAttribute("user", account);
+				request.getSession().setAttribute(SscConstant.USER, account);
 				return mapping.findForward("success");
 			}
 		}
-		request.setAttribute("errormsg", "ÓÃ»§Ãû»òÃÜÂë²»ÕıÈ·");
+		request.setAttribute("errormsg", "ç”¨æˆ·åæˆ–å¯†ç ä¸æ­£ç¡®");
 		loginForm.setPassword("");
 		return mapping.getInputForward();
 	}

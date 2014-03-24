@@ -18,7 +18,7 @@ public class LoginService {
 	private LoginDao loginDao;
 
 	public SysAccount login(String username, String password) {
-		//就算根据用户名没找到用户，也要去调用验证密码方法，防止别人根据返回时间猜测用户名
+		//灏辩畻鏍规嵁鐢ㄦ埛鍚嶆病鎵惧埌鐢ㄦ埛锛屼篃瑕佸幓璋冪敤楠岃瘉瀵嗙爜鏂规硶锛岄槻姝㈠埆浜烘牴鎹繑鍥炴椂闂寸寽娴嬬敤鎴峰悕
 		SysAccount account = loginDao.getSysAccountByUsername(username);
 		String userhash = "11";
 		String usersalt = "11";

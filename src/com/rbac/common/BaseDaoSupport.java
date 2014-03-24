@@ -14,19 +14,8 @@ public class BaseDaoSupport extends HibernateDaoSupport implements BaseDao {
 
 	private static final Log log = LogFactory.getLog(BaseDaoSupport.class);
 
-	/**
-	 * 要持久化的类。
-	 */
 	private Class<?> persistentClass;
 
-	/**
-	 * 获得持久化类。
-	 * 
-	 * @return 返回持久 /** 构造函数。
-	 * 
-	 * @param persistentClass
-	 *            要持久化的类。
-	 */
 	public BaseDaoSupport(Class<?> persistentClass) {
 		this.persistentClass = persistentClass;
 	}

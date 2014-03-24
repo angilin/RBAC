@@ -34,11 +34,9 @@ public class SysMenu implements java.io.Serializable {
 
 	private Date modifyTime;
 
+	private Integer orderSeq;
+
 	private Set sysMenus = new HashSet(0);
-
-	private Set sysRoleMenus = new HashSet(0);
-
-	private Set sysMenuActions = new HashSet(0);
 
 	// Constructors
 
@@ -56,8 +54,7 @@ public class SysMenu implements java.io.Serializable {
 	/** full constructor */
 	public SysMenu(SysMenu sysMenu, String name, String url, Integer needCheck,
 			Integer isShow, Integer isDeleted, Long creatorId, Date createTime,
-			Long modifierId, Date modifyTime, Set sysMenus, Set sysRoleMenus,
-			Set sysMenuActions) {
+			Long modifierId, Date modifyTime, Integer orderSeq, Set sysMenus) {
 		this.sysMenu = sysMenu;
 		this.name = name;
 		this.url = url;
@@ -68,9 +65,8 @@ public class SysMenu implements java.io.Serializable {
 		this.createTime = createTime;
 		this.modifierId = modifierId;
 		this.modifyTime = modifyTime;
+		this.orderSeq = orderSeq;
 		this.sysMenus = sysMenus;
-		this.sysRoleMenus = sysRoleMenus;
-		this.sysMenuActions = sysMenuActions;
 	}
 
 	// Property accessors
@@ -163,28 +159,20 @@ public class SysMenu implements java.io.Serializable {
 		this.modifyTime = modifyTime;
 	}
 
+	public Integer getOrderSeq() {
+		return this.orderSeq;
+	}
+
+	public void setOrderSeq(Integer orderSeq) {
+		this.orderSeq = orderSeq;
+	}
+
 	public Set getSysMenus() {
 		return this.sysMenus;
 	}
 
 	public void setSysMenus(Set sysMenus) {
 		this.sysMenus = sysMenus;
-	}
-
-	public Set getSysRoleMenus() {
-		return this.sysRoleMenus;
-	}
-
-	public void setSysRoleMenus(Set sysRoleMenus) {
-		this.sysRoleMenus = sysRoleMenus;
-	}
-
-	public Set getSysMenuActions() {
-		return this.sysMenuActions;
-	}
-
-	public void setSysMenuActions(Set sysMenuActions) {
-		this.sysMenuActions = sysMenuActions;
 	}
 
 }

@@ -20,6 +20,9 @@
       type="com.rbac.action.system.LoginAction">
       <forward name="success" path="/index.jsp" />
     </action>
+    <action path="/logout" type="com.rbac.action.system.LogoutAction">
+      <forward name="success" path="/login.jsp" />
+    </action>
 
   </action-mappings>
 

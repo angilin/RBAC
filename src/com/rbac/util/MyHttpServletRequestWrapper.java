@@ -18,7 +18,6 @@ public class MyHttpServletRequestWrapper extends HttpServletRequestWrapper {
 		if (results == null)
 			return null;
 		else {
-			// ´¦Àí×Ö·ûµÄ×ª»»
 			int count = results.length;
 			trimResults = new String[count];
 			for (int i = 0; i < count; i++) {
@@ -29,11 +28,9 @@ public class MyHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	}
 
 	/**
-	 * È«½Ç×ª°ë½Ç
-	 * 
+	 * å…¨åŠè§’è½¬æ¢
 	 * @param input
-	 *            String.
-	 * @return °ë½Ç×Ö·û´®
+	 * @return
 	 */
 	private String ToDBC(String input) {
 		if(StringUtils.isNotBlank(input)){

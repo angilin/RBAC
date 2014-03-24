@@ -60,6 +60,11 @@
                 <comment>修改日期</comment>
             </column>
         </property>
+        <property name="orderSeq" type="java.lang.Integer">
+            <column name="ORDER_SEQ">
+                <comment>排序字段</comment>
+            </column>
+        </property>
         <set name="sysMenus" inverse="true">
             <key>
                 <column name="PARENT_ID">
@@ -67,22 +72,6 @@
                 </column>
             </key>
             <one-to-many class="com.rbac.entity.SysMenu" />
-        </set>
-        <set name="sysRoleMenus" inverse="true">
-            <key>
-                <column name="MENU_ID">
-                    <comment>菜单id</comment>
-                </column>
-            </key>
-            <one-to-many class="com.rbac.entity.SysRoleMenu" />
-        </set>
-        <set name="sysMenuActions" inverse="true">
-            <key>
-                <column name="MENU_ID">
-                    <comment>菜单id</comment>
-                </column>
-            </key>
-            <one-to-many class="com.rbac.entity.SysMenuAction" />
         </set>
     </class>
 </hibernate-mapping>

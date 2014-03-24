@@ -1,9 +1,8 @@
 package com.rbac.common;
 
 /**
- * ³£Á¿Àà
- * @author Angilin Hwang
- * @date 2013-12-4
+ * å¸¸é‡ç±»
+ * @date 2014-3-24
  *
  */
 public class SscConstant {

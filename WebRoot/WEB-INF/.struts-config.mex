@@ -3,6 +3,13 @@
   <StrutsActivity path="/login.do" location="50,50" dimension="233,104" />
   <StrutsActivity path="/index.jsp" location="350,50" dimension="88,53" />
   <StrutsActivity path="/login.jsp" location="650,50" dimension="86,53" />
+  <StrutsActivity path="/logout.do" location="950,50" dimension="257,104" />
+  <StrutsTransition id="/logout.do,success,/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,88" />
+      <AbsolutePoint location="736,88" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="693,103" />
