@@ -12,8 +12,8 @@
 	<html:form action="login.do">
 		<div style="margin:0px auto;width:300px;">
 			<h1>RBAC系统</h1>
-			<div>用户名：<html:text property="username"/></div>
-			<div>密&nbsp;&nbsp;码：<html:password property="password"/></div>
+			<div><span style="width:100px">用户名：</span><html:text property="username"/></div>
+			<div><span style="width:100px">密&nbsp;&nbsp;码：</span><html:password property="password"/></div>
 			<center><html:submit property="submit" value="登录"/></center>
 			<div><font color="red">${errormsg}</font></div>
 		</div>

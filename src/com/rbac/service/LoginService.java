@@ -2,6 +2,7 @@ package com.rbac.service;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,12 @@ public class LoginService {
 		}
 
 		return null;
+	}
+	
+	public List getMenuListByAccountId(Long accountId){
+		//json
+		//http://blog.csdn.net/xiazdong/article/details/7059573
+		List list = loginDao.getMenuListByAccountId(accountId);
+		return list;
 	}
 }

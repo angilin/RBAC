@@ -82,10 +82,6 @@
 	<session-config>
 		<session-timeout>480</session-timeout>
 	</session-config>
-	<listener>
-		<listener-class>
-			com.rbac.util.SessionListener
-		</listener-class>
-	</listener>
+	
 </web-app>
 

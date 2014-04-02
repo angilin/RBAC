@@ -219,3 +219,10 @@ pip-log.txt
 *.class
 
 classes/
+
+SysAccountAr.hbm.xml
+SysAccountRoleAr.hbm.xml
+SysRoleAr.hbm.xml
+ArchiveDao.java
+ArchiveService.java
+FtpAccess.java
