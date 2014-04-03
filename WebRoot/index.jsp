@@ -29,7 +29,7 @@ p {
         Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
 
 		//根节点还是只能设置1个
-		var treejson = {id:"1",text:"菜单1",expanded: true ,children:[{id:"2",text:"子菜单1",leaf : true}]};
+		var treejson = {id:"0",text:"菜单",expanded: true ,children:${sessionScope.com_user.menuJsonString}};
         
         var store = Ext.create("Ext.data.TreeStore", {				
 	        model : "ctreemodel",
@@ -85,7 +85,7 @@ p {
         <div>
         	<span style="float:left;padding-left:50px;padding-top:5px;bold;font-size:20pt;">RBAC系统</span>
         	<span style="float:right;padding-right:50px;padding-top:15px;font-size:12pt;">
-        		当前用户：<c:out value="${sessionScope.com_user.realname}"/>
+        		当前用户：<c:out value="${sessionScope.com_user.account.realname}"/>
         		&nbsp;&nbsp;&nbsp;
         		当前时间：<span id="currentTime"></span>
         		&nbsp;&nbsp;&nbsp;
@@ -96,6 +96,7 @@ p {
     <div id="west" class="x-hide-display">
     </div>
     <div id="center1" class="x-hide-display">
+    菜单的json字符串：${sessionScope.com_user.menuJsonString}
     </div>
 </body>
 </html>

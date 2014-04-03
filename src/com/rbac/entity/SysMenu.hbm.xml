@@ -10,11 +10,11 @@
             <column name="ID" />
             <generator class="native" />
         </id>
-        <many-to-one name="sysMenu" class="com.rbac.entity.SysMenu" fetch="select">
+        <property name="parentId" type="java.lang.Long">
             <column name="PARENT_ID">
                 <comment>父菜单id</comment>
             </column>
-        </many-to-one>
+        </property>
         <property name="name" type="java.lang.String">
             <column name="NAME" length="20">
                 <comment>菜单显示名</comment>
@@ -65,13 +65,5 @@
                 <comment>排序字段</comment>
             </column>
         </property>
-        <set name="sysMenus" inverse="true">
-            <key>
-                <column name="PARENT_ID">
-                    <comment>父菜单id</comment>
-                </column>
-            </key>
-            <one-to-many class="com.rbac.entity.SysMenu" />
-        </set>
     </class>
 </hibernate-mapping>

@@ -23,7 +23,7 @@ public class LoginDao extends BaseDaoSupport {
 	}
 	
 	public List getMenuListByAccountId(Long accountId){
-		String sql = "select m.* from sys_menu m where m.ID in (select rm.menu_id from sys_role_menu rm where rm.ROLE_ID in (select ar.role_id from sys_account_role ar where ar.account_id=:accountId))";
+		String sql = "select m.* from sys_menu m where m.is_deleted=0 and m.ID in (select rm.menu_id from sys_role_menu rm where rm.is_deleted=0 and rm.ROLE_ID in (select ar.role_id from sys_account_role ar where ar.is_deleted=0 and ar.account_id=:accountId))";
 		return super.getSession().createSQLQuery(sql).addEntity(SysMenu.class).setLong("accountId", accountId).list();
 	}
 }

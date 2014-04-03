@@ -13,8 +13,8 @@ public class SysMenu implements java.io.Serializable {
 	// Fields
 
 	private Long id;
-
-	private SysMenu sysMenu;
+	
+	private Long parentId;
 
 	private String name;
 
@@ -36,8 +36,6 @@ public class SysMenu implements java.io.Serializable {
 
 	private Integer orderSeq;
 
-	private Set sysMenus = new HashSet(0);
-
 	// Constructors
 
 	/** default constructor */
@@ -52,10 +50,10 @@ public class SysMenu implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SysMenu(SysMenu sysMenu, String name, String url, Integer needCheck,
+	public SysMenu(Long parentId, String name, String url, Integer needCheck,
 			Integer isShow, Integer isDeleted, Long creatorId, Date createTime,
-			Long modifierId, Date modifyTime, Integer orderSeq, Set sysMenus) {
-		this.sysMenu = sysMenu;
+			Long modifierId, Date modifyTime, Integer orderSeq) {
+		this.parentId = parentId;
 		this.name = name;
 		this.url = url;
 		this.needCheck = needCheck;
@@ -66,7 +64,6 @@ public class SysMenu implements java.io.Serializable {
 		this.modifierId = modifierId;
 		this.modifyTime = modifyTime;
 		this.orderSeq = orderSeq;
-		this.sysMenus = sysMenus;
 	}
 
 	// Property accessors
@@ -77,14 +74,6 @@ public class SysMenu implements java.io.Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public SysMenu getSysMenu() {
-		return this.sysMenu;
-	}
-
-	public void setSysMenu(SysMenu sysMenu) {
-		this.sysMenu = sysMenu;
 	}
 
 	public String getName() {
@@ -167,12 +156,12 @@ public class SysMenu implements java.io.Serializable {
 		this.orderSeq = orderSeq;
 	}
 
-	public Set getSysMenus() {
-		return this.sysMenus;
+	public Long getParentId() {
+		return parentId;
 	}
 
-	public void setSysMenus(Set sysMenus) {
-		this.sysMenus = sysMenus;
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 
 }
