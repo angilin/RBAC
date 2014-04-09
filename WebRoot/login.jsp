@@ -15,7 +15,7 @@
 			<div><span style="width:100px">用户名：</span><html:text property="username"/></div>
 			<div><span style="width:100px">密&nbsp;&nbsp;码：</span><html:password property="password"/></div>
 			<center><html:submit property="submit" value="登录"/></center>
-			<div><font color="red">${errormsg}</font></div>
+			<div><font color="red"><c:out value="${error_msg}"/></font></div>
 		</div>
 	</html:form>
 </body>

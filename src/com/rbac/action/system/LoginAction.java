@@ -56,7 +56,7 @@ public class LoginAction extends BaseAction {
 				return mapping.findForward("success");
 			}
 		}
-		request.setAttribute("errormsg", "用户名或密码不正确");
+		request.setAttribute(MvcConstant.ERROR_MSG, "用户名或密码不正确");
 		loginForm.setPassword("");
 					
 		return mapping.getInputForward();
