@@ -2,7 +2,7 @@
 	privileged="true">
 	<Resource name="jdbc/sr" auth="Container"
 		type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://10.101.2.108:3306/rbac?characterEncoding=UTF-8"
+		url="jdbc:mysql://127.0.0.1:3306/rbac?characterEncoding=UTF-8"
 		username="root" password="1" removeAbandoned="true"
 		removeAbandonedTimeout="20" logAbandoned="true" maxIdle="10"
 		maxWait="50000" maxActive="20" />
