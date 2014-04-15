@@ -46,7 +46,7 @@ public class MvcRequestProcessor extends RequestProcessor{
 		//检查登录用户是否有权限访问该路径
 		UserDetail user = (UserDetail)session.getAttribute(MvcConstant.USER);
 		Set<String> permitActionSet = user.getPermitActionSet();
-		if(!permitActionSet.contains(mapping.getPath())){
+		if(!permitActionSet.contains(mapping.getPath()+".do")){
 			request.setAttribute(MvcConstant.ERROR_MSG, "你没有权限访问该功能");
 			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
