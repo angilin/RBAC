@@ -86,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `sys_menu` (
   `CREATE_TIME` timestamp NULL default NULL COMMENT '创建时间',
   `MODIFIER_ID` bigint(20) default NULL COMMENT '修改者id',
   `MODIFY_TIME` timestamp NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP COMMENT '修改日期',
+  `ORDER_SEQ` INT(10) NULL DEFAULT NULL COMMENT '排序字段',
   PRIMARY KEY  (`ID`),
   KEY `FK_sys_menu_sys_menu` (`PARENT_ID`),
   CONSTRAINT `FK_sys_menu_sys_menu` FOREIGN KEY (`PARENT_ID`) REFERENCES `sys_menu` (`ID`)
