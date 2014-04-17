@@ -19,20 +19,6 @@ public class AccountService {
 	private AccountDao accountDao;
 
 	public void saveOrUpdateAccount(SysAccount account){
-		if(account.getRealname().equals("系统管理员")){
-			account.setRealname("bbbb");
-		}
-		else{
-			account.setRealname("admin");
-		}
-		accountDao.getHibernateTemplate().update(account);
-		
-		if(account.getRealname().equals("bbbb")){
-			account.setRealname("系统管理员");
-		}
-		else{
-			account.setRealname("bbbb");
-		}
 		accountDao.saveOrUpdate(account);
 	}
 	
