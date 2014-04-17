@@ -7,7 +7,8 @@
 <head>
 <title>RBAC系统</title>
 <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
-<!-- 参考extjs4.1.1中examples/layout/tabpaneltest.html -->
+<!-- 页面布局参考extjs4.1.1中examples/layout/tabpaneltest.html -->
+<!-- tab功能参考extjs4.1.1中examples/tabs/tabs-adv.html -->
 <style type="text/css">
 p {
     margin:5px;
@@ -41,8 +42,46 @@ p {
 	        width: 200,
 	        autoScroll: true,
 	        region: 'west',
-	        store:  store
+	        store:  store,
+	        listeners: {itemclick: treeNodeClick}
 	    });
+	    
+	    var tabPanel = Ext.create('Ext.tab.Panel', {
+                region: 'center', // a center region is ALWAYS required for border layout
+                deferredRender: false,
+                activeTab: 0,     // first tab initially active
+                items: [{
+                    contentEl: 'center1',
+                    title: '欢迎',
+                    //closable: true,
+                    autoScroll: true
+                }]
+            });
+            
+        var tabCount = 0;
+        function addTab(id,name,url,closable) {
+	        ++tabCount;
+	        var tab = tabPanel.getComponent(id);
+	        if(tab){
+	        	tabPanel.remove(tab);
+	        }
+	        tabPanel.add({
+	        	id: id,
+	            closable: closable,
+	            html: '<iframe id="'+name+'" src="'+url.substr(1)+'" frameborder="0" height="100%" width="100%"></iframe>',
+	            title: name
+	        }).show();
+	    }
+	    
+	    function treeNodeClick(view, record, item, index, e){
+	    	var isLeaf = record.get('leaf');
+	    	if(isLeaf){
+	    		e.stopEvent();
+	    		//参考http://stackoverflow.com/questions/6094411/handling-itemclick-event-on-tree-panel-extjs-4
+	    		//alert(record.get('id')+":"+record.get('text')+":"+record.raw.url );
+	    		addTab(record.get('id'), record.get('text'), record.raw.url, true);
+	    	}
+	    }					
 
         var viewport = Ext.create('Ext.Viewport', {
             id: 'border-example',
@@ -54,17 +93,7 @@ p {
                 height: 50
             }, 
             treePanel,
-            Ext.create('Ext.tab.Panel', {
-                region: 'center', // a center region is ALWAYS required for border layout
-                deferredRender: false,
-                activeTab: 0,     // first tab initially active
-                items: [{
-                    contentEl: 'center1',
-                    title: '欢迎',
-                    //closable: true,
-                    autoScroll: true
-                }]
-            })]
+            tabPanel]
         });
                 
         
@@ -89,7 +118,7 @@ p {
         		&nbsp;&nbsp;&nbsp;
         		当前时间：<span id="currentTime"></span>
         		&nbsp;&nbsp;&nbsp;
-        		<a href="logout.do">登出</a>
+        		<a href="logout.do">注销</a>
         	</span>
         </div>
     </div>
@@ -100,6 +129,3 @@ p {
     </div>
 </body>
 </html>
-
-
-

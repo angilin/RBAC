@@ -94,5 +94,9 @@ public class BaseDaoSupport extends HibernateDaoSupport implements BaseDao {
 	public <T> void saveOrUpdate(T t) {
 		getHibernateTemplate().saveOrUpdate(t);
 	}
+	
+	public <T> T findById(Class clazz, Serializable id) {
+		return (T) getHibernateTemplate().get(clazz, id);
+	}
 
 }

@@ -4,6 +4,14 @@
   <StrutsActivity path="/logout.do" location="950,50" dimension="257,104" />
   <StrutsActivity path="/index.jsp" location="350,50" dimension="88,53" />
   <StrutsActivity path="/login.jsp" location="650,50" dimension="86,53" />
+  <StrutsActivity path="/accountList.do" location="50,250" dimension="281,104" />
+  <StrutsActivity path="/system/accountList.jsp" location="650,250" dimension="166,53" />
+  <StrutsTransition id="/system/accountList.jsp,null,/accountList.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,276" />
+      <AbsolutePoint location="331,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/logout.do,success,/login.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="950,88" />
