@@ -7,6 +7,7 @@
 		<form-bean name="LoginForm"
 			type="com.rbac.form.system.LoginForm" />
     <form-bean name="accountListForm" type="com.rbac.form.system.AccountListForm" />
+    <form-bean name="accountModifyForm" type="com.rbac.form.system.AccountModifyForm" />
 
 	</form-beans>
 
@@ -29,6 +30,15 @@
       path="/accountList"
       scope="request"
       type="com.rbac.action.system.AccountListAction" />
+    <action
+      attribute="accountModifyForm"
+      input="/system/accountModify.jsp"
+      name="accountModifyForm"
+      path="/accountModify"
+      scope="request"
+      type="com.rbac.action.system.AccountModifyAction">
+      <forward name="success" path="/system/accountList.jsp" />
+    </action>
 
 	</action-mappings>
 

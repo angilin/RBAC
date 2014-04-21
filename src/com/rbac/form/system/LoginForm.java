@@ -5,9 +5,11 @@
 package com.rbac.form.system;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+
+import com.rbac.common.BaseForm;
 
 /** 
  * MyEclipse Struts
@@ -16,7 +18,7 @@ import org.apache.struts.action.ActionMapping;
  * XDoclet definition:
  * @struts.form name="LoginForm"
  */
-public class LoginForm extends ActionForm {
+public class LoginForm extends BaseForm {
 	/*
 	 * Generated fields
 	 */

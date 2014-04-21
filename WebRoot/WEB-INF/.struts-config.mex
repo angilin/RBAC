@@ -2,10 +2,12 @@
 <FlowViewLayout Version="1.2">
   <StrutsActivity path="/login.do" location="50,50" dimension="233,104" />
   <StrutsActivity path="/logout.do" location="950,50" dimension="257,104" />
+  <StrutsActivity path="/accountList.do" location="50,250" dimension="281,104" />
   <StrutsActivity path="/index.jsp" location="350,50" dimension="88,53" />
   <StrutsActivity path="/login.jsp" location="650,50" dimension="86,53" />
-  <StrutsActivity path="/accountList.do" location="50,250" dimension="281,104" />
   <StrutsActivity path="/system/accountList.jsp" location="650,250" dimension="166,53" />
+  <StrutsActivity path="/accountModify.do" location="950,250" dimension="303,104" />
+  <StrutsActivity path="/system/accountModify.jsp" location="50,450" dimension="188,53" />
   <StrutsTransition id="/system/accountList.jsp,null,/accountList.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="650,276" />
@@ -23,6 +25,19 @@
       <AbsolutePoint location="693,103" />
       <AbsolutePoint location="693,118" />
       <AbsolutePoint location="283,118" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/accountModify.do,success,/system/accountList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,288" />
+      <AbsolutePoint location="816,288" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/system/accountModify.jsp,null,/accountModify.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="238,476" />
+      <AbsolutePoint location="1101,476" />
+      <AbsolutePoint location="1101,354" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/login.do,success,/index.jsp,1" routingType="0">

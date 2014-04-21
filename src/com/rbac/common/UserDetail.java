@@ -6,10 +6,13 @@ import com.rbac.entity.SysAccount;
 
 public class UserDetail {
 
+	//用户
 	private SysAccount account;
 	
+	//菜单
 	private String menuJsonString;
 	
+	//用户的所有权限
 	private Set<String> permitActionSet;
 
 	public SysAccount getAccount() {

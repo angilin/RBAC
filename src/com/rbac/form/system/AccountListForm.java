@@ -5,9 +5,11 @@
 package com.rbac.form.system;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+
+import com.rbac.common.BaseForm;
 
 /** 
  * MyEclipse Struts
@@ -16,10 +18,60 @@ import org.apache.struts.action.ActionMapping;
  * XDoclet definition:
  * @struts.form name="accountListForm"
  */
-public class AccountListForm extends ActionForm {
+public class AccountListForm extends BaseForm {
 	/*
 	 * Generated Methods
 	 */
+	
+	private String username;
+	
+	private String realname;
+	
+	private String query;
+	
+	private String del;
+	
+	private String deleteIds;
+
+	public String getDel() {
+		return del;
+	}
+
+	public void setDel(String del) {
+		this.del = del;
+	}
+
+	public String getDeleteIds() {
+		return deleteIds;
+	}
+
+	public void setDeleteIds(String deleteIds) {
+		this.deleteIds = deleteIds;
+	}
+
+	public String getQuery() {
+		return query;
+	}
+
+	public void setQuery(String query) {
+		this.query = query;
+	}
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	/** 
 	 * Method validate
@@ -39,6 +91,7 @@ public class AccountListForm extends ActionForm {
 	 * @param request
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		this.query = null;
+		this.del = null;
 	}
 }

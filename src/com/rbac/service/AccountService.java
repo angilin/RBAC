@@ -1,11 +1,7 @@
 package com.rbac.service;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
-import org.hibernate.Hibernate;
-import org.hibernate.collection.PersistentBag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +20,16 @@ public class AccountService {
 	
 	public SysAccount getAccountById(Long accountId){
 		return accountDao.findById(SysAccount.class, accountId);
+	}
+	
+	public List<SysAccount> getSysAccountList(String username, String realname){
+		return accountDao.getSysAccountList(username, realname);
+	}
+	
+	public void deleteAccount(Long accountId){
+		SysAccount account = accountDao.findById(SysAccount.class, accountId);
+		account.setIsDeleted(1);
+		account.setModifierId(1L);
+		accountDao.saveOrUpdate(account);
 	}
 }
