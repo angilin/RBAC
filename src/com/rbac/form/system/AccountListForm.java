@@ -23,9 +23,9 @@ public class AccountListForm extends BaseForm {
 	 * Generated Methods
 	 */
 	
-	private String username;
+	private String usernameQry;
 	
-	private String realname;
+	private String realnameQry;
 	
 	private String query;
 	
@@ -57,20 +57,20 @@ public class AccountListForm extends BaseForm {
 		this.query = query;
 	}
 
-	public String getRealname() {
-		return realname;
+	public String getRealnameQry() {
+		return realnameQry;
 	}
 
-	public void setRealname(String realname) {
-		this.realname = realname;
+	public void setRealnameQry(String realnameQry) {
+		this.realnameQry = realnameQry;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUsernameQry() {
+		return usernameQry;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsernameQry(String usernameQry) {
+		this.usernameQry = usernameQry;
 	}
 
 	/** 

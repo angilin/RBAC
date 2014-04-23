@@ -31,6 +31,8 @@ public class SysAccount implements java.io.Serializable {
 	private Long modifierId;
 
 	private Date modifyTime;
+	
+	private String roleIds;
 
 	private Set sysAccountRoles = new HashSet(0);
 
@@ -153,6 +155,14 @@ public class SysAccount implements java.io.Serializable {
 
 	public void setSysAccountRoles(Set sysAccountRoles) {
 		this.sysAccountRoles = sysAccountRoles;
+	}
+
+	public String getRoleIds() {
+		return roleIds;
+	}
+
+	public void setRoleIds(String roleIds) {
+		this.roleIds = roleIds;
 	}
 
 }

@@ -37,7 +37,7 @@
       path="/accountModify"
       scope="request"
       type="com.rbac.action.system.AccountModifyAction">
-      <forward name="success" path="/system/accountList.jsp" />
+      <forward name="success" path="/accountList.do" />
     </action>
 
 	</action-mappings>

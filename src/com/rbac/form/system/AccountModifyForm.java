@@ -6,13 +6,13 @@ package com.rbac.form.system;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseForm;
 import com.rbac.entity.SysAccount;
 import com.rbac.service.AccountService;
+import com.rbac.util.CommonUtils;
 
 /** 
  * MyEclipse Struts
@@ -106,7 +106,7 @@ public class AccountModifyForm extends BaseForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.submit = null;
-		if(StringUtils.isNotEmpty(request.getParameter("id"))){
+		if(CommonUtils.isNotBlank(request.getParameter("id"))){
 			this.setId(request.getParameter("id"));
 			AccountService accountService = (AccountService) super
 				.getBean("accountService");

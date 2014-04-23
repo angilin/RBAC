@@ -7,7 +7,6 @@ package com.rbac.action.system;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
@@ -19,6 +18,7 @@ import com.rbac.common.MvcConstant;
 import com.rbac.common.UserDetail;
 import com.rbac.form.system.LoginForm;
 import com.rbac.service.LoginService;
+import com.rbac.util.CommonUtils;
 
 /**
  * MyEclipse Struts Creation date: 12-20-2013
@@ -48,7 +48,7 @@ public class LoginAction extends BaseAction {
 		LoginForm loginForm = (LoginForm) form;
 		LoginService loginService = (LoginService) super
 				.getBean("loginService");
-		if (StringUtils.isNotBlank(loginForm.getPassword())) {
+		if (CommonUtils.isNotBlank(loginForm.getPassword())) {
 			UserDetail userDetail = loginService.login(loginForm.getUsername(),
 					loginForm.getPassword());
 			if (userDetail != null) {

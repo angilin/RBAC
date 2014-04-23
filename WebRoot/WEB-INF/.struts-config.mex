@@ -3,15 +3,22 @@
   <StrutsActivity path="/login.do" location="50,50" dimension="233,104" />
   <StrutsActivity path="/logout.do" location="950,50" dimension="257,104" />
   <StrutsActivity path="/accountList.do" location="50,250" dimension="281,104" />
+  <StrutsActivity path="/accountModify.do" location="950,250" dimension="303,104" />
   <StrutsActivity path="/index.jsp" location="350,50" dimension="88,53" />
   <StrutsActivity path="/login.jsp" location="650,50" dimension="86,53" />
   <StrutsActivity path="/system/accountList.jsp" location="650,250" dimension="166,53" />
-  <StrutsActivity path="/accountModify.do" location="950,250" dimension="303,104" />
   <StrutsActivity path="/system/accountModify.jsp" location="50,450" dimension="188,53" />
   <StrutsTransition id="/system/accountList.jsp,null,/accountList.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="650,276" />
       <AbsolutePoint location="331,276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/accountModify.do,success,accountList.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1131,354" />
+      <AbsolutePoint location="1131,493" />
+      <AbsolutePoint location="476,493" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/logout.do,success,/login.jsp,1" routingType="0">
@@ -35,9 +42,16 @@
   </StrutsTransition>
   <StrutsTransition id="/system/accountModify.jsp,null,/accountModify.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="238,476" />
-      <AbsolutePoint location="1101,476" />
+      <AbsolutePoint location="144,450" />
+      <AbsolutePoint location="144,399" />
+      <AbsolutePoint location="1101,399" />
       <AbsolutePoint location="1101,354" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/accountModify.do,success,/accountList.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1101,302" />
+      <AbsolutePoint location="190,302" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/login.do,success,/index.jsp,1" routingType="0">

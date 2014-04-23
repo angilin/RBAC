@@ -18,17 +18,17 @@
 			<ul>
 				<li>
 					用户登录名
-					<html:text property="username" />
+					<html:text property="usernameQry" />
 				</li>
 				<li>
 					用户显示名
-					<html:text property="realname" />
+					<html:text property="realnameQry" />
 				</li>
 			</ul>
 			<html:submit property="query" value="查询" />
 			<html:submit property="del" value="批量删除" style="display:none" />
 			<input type="button" value="新增"
-				onclick="window.href='accountModify.do'" />
+				onclick="window.location.href='accountModify.do'" />
 			<table border="1" width="80%">
 				<thead>
 					<tr>

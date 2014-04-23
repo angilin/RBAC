@@ -24,13 +24,26 @@
 		</init-param>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
+  
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
+
+
+  
 	
 	<!-- 自定义servlet -->
+	<servlet>
+	  	<description>检查用户名不能冲突</description>
+	  	<servlet-name>CheckAccountNameServlet</servlet-name>
+		<servlet-class>com.rbac.servlet.CheckAccountNameServlet</servlet-class>
+	</servlet>
+	
+  	<servlet-mapping>
+    	<servlet-name>CheckAccountNameServlet</servlet-name>
+    	<url-pattern>/servlet/CheckAccountNameServlet</url-pattern>
+  	</servlet-mapping>
 	
 	
 	

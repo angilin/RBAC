@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
 import org.json.me.JSONArray;
 import org.json.me.JSONException;
 import org.json.me.JSONObject;
@@ -22,6 +21,7 @@ import com.rbac.entity.SysAccount;
 import com.rbac.entity.SysAction;
 import com.rbac.entity.SysMenu;
 import com.rbac.entity.SysMenuVo;
+import com.rbac.util.CommonUtils;
 import com.rbac.util.PasswordHash;
 
 @Service("loginService")
@@ -41,8 +41,8 @@ public class LoginService {
 		SysAccount account = loginDao.getSysAccountByUsername(username);
 		String userhash = "11";
 		String usersalt = "11";
-		if (account != null && StringUtils.isNotBlank(account.getPassword())
-				&& StringUtils.isNotBlank(account.getSalt())) {
+		if (account != null && CommonUtils.isNotBlank(account.getPassword())
+				&& CommonUtils.isNotBlank(account.getSalt())) {
 			userhash = account.getPassword();
 			usersalt = account.getSalt();
 		}

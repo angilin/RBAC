@@ -9,7 +9,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -17,6 +16,7 @@ import org.apache.struts.action.ActionMapping;
 import com.rbac.common.BaseAction;
 import com.rbac.form.system.AccountListForm;
 import com.rbac.service.AccountService;
+import com.rbac.util.CommonUtils;
 
 /** 
  * MyEclipse Struts
@@ -43,10 +43,10 @@ public class AccountListAction extends BaseAction {
 		AccountListForm accountListForm = (AccountListForm) form;
 		AccountService accountService = (AccountService) super
 			.getBean("accountService");
-		if(StringUtils.isNotEmpty(accountListForm.getDel())){
+		if(CommonUtils.isNotBlank(accountListForm.getDel())){
 			accountService.deleteAccount(Long.parseLong(accountListForm.getDeleteIds()));
 		}
-		List accountList = accountService.getSysAccountList(accountListForm.getUsername(), accountListForm.getRealname());
+		List accountList = accountService.getSysAccountList(accountListForm.getUsernameQry(), accountListForm.getRealnameQry());
 		request.setAttribute("accountList", accountList);
 		return mapping.getInputForward();
 	}
