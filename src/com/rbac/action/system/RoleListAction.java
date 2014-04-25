@@ -8,27 +8,30 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseAction;
-import com.rbac.form.system.AccountListForm;
+import com.rbac.form.system.RoleListForm;
 import com.rbac.service.AccountService;
+import com.rbac.service.RoleService;
 import com.rbac.util.CommonUtils;
 
-/** 
- * MyEclipse Struts
- * Creation date: 04-11-2014
+/**
+ * MyEclipse Struts Creation date: 04-25-2014
  * 
  * XDoclet definition:
- * @struts.action path="/accountList" name="accountListForm" input="/system/accountList.jsp" scope="request" validate="true"
+ * 
+ * @struts.action path="/roleList" name="roleListForm"
+ *                input="/system/roleList.jsp" scope="request" validate="true"
  */
-public class AccountListAction extends BaseAction {
+public class RoleListAction extends BaseAction {
 
-	/** 
+	/**
 	 * Method execute
+	 * 
 	 * @param mapping
 	 * @param form
 	 * @param request
@@ -37,14 +40,16 @@ public class AccountListAction extends BaseAction {
 	 */
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		AccountListForm accountListForm = (AccountListForm) form;
-		AccountService accountService = (AccountService) super
-			.getBean("accountService");
-		if(CommonUtils.isNotBlank(accountListForm.getDel())){
-			accountService.deleteAccount(Long.parseLong(accountListForm.getDeleteIds()));
+		RoleListForm roleListForm = (RoleListForm) form;
+		RoleService roleService = (RoleService) super
+				.getBean("roleService");
+		if (CommonUtils.isNotBlank(roleListForm.getDel())) {
+			roleService.deleteRole(Long.parseLong(roleListForm
+					.getDeleteIds()));
 		}
-		List accountList = accountService.getSysAccountList(accountListForm.getUsernameQry(), accountListForm.getRealnameQry());
-		request.setAttribute("accountList", accountList);
+		List roleList = roleService.getSysRoleList(roleListForm
+				.getRoleNameQry(), roleListForm.getRoleDescQry());
+		request.setAttribute("roleList", roleList);
 		return mapping.getInputForward();
 	}
 }

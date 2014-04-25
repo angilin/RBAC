@@ -1,5 +1,6 @@
 package com.rbac.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.rbac.common.BaseDaoSupport;
 import com.rbac.entity.SysAccount;
+import com.rbac.entity.SysAccountRole;
 import com.rbac.util.CommonUtils;
 
 @Component("accountDao")
@@ -36,6 +38,18 @@ public class AccountDao extends BaseDaoSupport {
 		}
 		if(ignoreAccountId!=null){
 			crit.add(Restrictions.ne("id", ignoreAccountId));
+		}
+		return crit.list();
+	}
+	
+	public List<SysAccountRole> getSysAccountRoleByAccountId(Long accountId){
+		Criteria crit = super.getSession().createCriteria(SysAccountRole.class);
+		crit.add(Restrictions.eq("isDeleted", 0));
+		if(accountId!=null){
+			crit.add(Restrictions.eq("sysAccount", super.findById(SysAccount.class, accountId)));
+		}
+		else{
+			return new ArrayList<SysAccountRole>();
 		}
 		return crit.list();
 	}

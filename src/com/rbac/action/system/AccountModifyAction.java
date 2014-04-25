@@ -11,7 +11,6 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -63,6 +62,9 @@ public class AccountModifyAction extends BaseAction {
 			}
 			account.setUsername(accountModifyForm.getUsername());
 			account.setRealname(accountModifyForm.getRealname());
+			if(CommonUtils.isNotBlank(accountModifyForm.getRoleId())){
+				account.setRoleIds(accountModifyForm.getRoleId());
+			}
 			if(CommonUtils.isNotBlank(accountModifyForm.getPassword())){
 				try {
 					String pwdHash = PasswordHash.createHash(accountModifyForm.getPassword().trim());

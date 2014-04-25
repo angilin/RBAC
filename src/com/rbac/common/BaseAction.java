@@ -26,9 +26,22 @@ public class BaseAction extends Action {
 	 * @return
 	 */
 	protected Long getCurrentAccountId(HttpServletRequest request){
-		UserDetail user = (UserDetail)request.getSession(true).getAttribute(MvcConstant.USER);
-		if(user!=null && user.getAccount()!=null){
-			return user.getAccount().getId();
+		UserDetail userDetail = this.getCurrentUserDetail(request);
+		if(userDetail!=null && userDetail.getAccount()!=null){
+			return userDetail.getAccount().getId();
+		}
+		return null;
+	}
+	
+	/**
+	 * 得到当前登录用户信息
+	 * @param request
+	 * @return
+	 */
+	protected UserDetail getCurrentUserDetail(HttpServletRequest request){
+		UserDetail userDetail = (UserDetail)request.getSession(true).getAttribute(MvcConstant.USER);
+		if(userDetail!=null){
+			return userDetail;
 		}
 		return null;
 	}

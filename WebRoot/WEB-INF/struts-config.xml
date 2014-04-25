@@ -8,6 +8,8 @@
 			type="com.rbac.form.system.LoginForm" />
     <form-bean name="accountListForm" type="com.rbac.form.system.AccountListForm" />
     <form-bean name="accountModifyForm" type="com.rbac.form.system.AccountModifyForm" />
+    <form-bean name="roleListForm" type="com.rbac.form.system.RoleListForm" />
+    <form-bean name="roleModifyForm" type="com.rbac.form.system.RoleModifyForm" />
 
 	</form-beans>
 
@@ -38,6 +40,22 @@
       scope="request"
       type="com.rbac.action.system.AccountModifyAction">
       <forward name="success" path="/accountList.do" />
+    </action>
+    <action
+      attribute="roleListForm"
+      input="/system/roleList.jsp"
+      name="roleListForm"
+      path="/roleList"
+      scope="request"
+      type="com.rbac.action.system.RoleListAction" />
+    <action
+      attribute="roleModifyForm"
+      input="/system/roleModify.jsp"
+      name="roleModifyForm"
+      path="/roleModify"
+      scope="request"
+      type="com.rbac.action.system.RoleModifyAction">
+      <forward name="success" path="/roleList.do" />
     </action>
 
 	</action-mappings>

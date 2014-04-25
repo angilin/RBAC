@@ -19,10 +19,7 @@ import com.rbac.common.BaseForm;
  * @struts.form name="accountListForm"
  */
 public class AccountListForm extends BaseForm {
-	/*
-	 * Generated Methods
-	 */
-	
+		
 	private String usernameQry;
 	
 	private String realnameQry;

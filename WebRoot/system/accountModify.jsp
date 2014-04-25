@@ -9,6 +9,7 @@
 		<style type="text/css">
 		</style>
 		<script type="text/javascript" src="extjs/ext-all.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
 		<script type="text/javascript">
 			function checkAccountModify(){
 				with(document.forms[0]){
@@ -39,25 +40,7 @@
 				document.getElementById('submit').click();
 				return true;
 			}
-			
-			String.prototype.trim = function(){  
-			    // 用正则表达式将前后空格  
-			    // 用空字符串替代
-			    return this.replace(/(^\s*)|(\s*$)/g, "");  
-			}
-			
-			function isBlank(str){
-				return !isNotBlank(str);
-			}
 						
-			function isNotBlank(str){
-				str = str.trim();
-				if(str==undefined || str==''){
-					return false;
-				}
-				return true;
-			}
-			
 			function checkAccountName(){
 				var username = document.forms[0].username.value.trim();
 				if(isNotBlank(username)){
@@ -114,6 +97,12 @@
 						<span style="color:red" title="必填">(*)</span>
 					</c:if>
 					<html:password property="passwordRepeat" />
+				</li>
+				<li>
+					角色
+					<html:select property="roleId">
+						<html:options collection="roleList" property="id" labelProperty="roleName"/>
+					</html:select>
 				</li>
 			</ul>
 		</html:form>

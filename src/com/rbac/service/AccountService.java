@@ -1,5 +1,6 @@
 package com.rbac.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,10 @@ public class AccountService {
 	 * @param accountId
 	 */
 	public void deleteAccount(Long accountId){
-		SysAccount account = accountDao.findById(SysAccount.class, accountId);
+		SysAccount account = this.getAccountById(accountId);
 		account.setIsDeleted(1);
 		account.setModifierId(1L);
+		account.setModifyTime(new Date());
 		accountDao.saveOrUpdate(account);
 	}
 	

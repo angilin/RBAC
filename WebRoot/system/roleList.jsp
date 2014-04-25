@@ -5,38 +5,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	<head>
-		<title>用户管理</title>
+		<title>角色管理</title>
 		<style type="text/css">
 		</style>
 	</head>
 	<body>
-		<html:form action="accountList.do">
+		<html:form action="roleList.do">
 			<html:hidden property="deleteIds" />
 			<h1>
-				用户列表
+				角色列表
 			</h1>
 			<ul>
 				<li>
-					用户登录名
-					<html:text property="usernameQry" />
+					角色名称
+					<html:text property="roleNameQry" />
 				</li>
 				<li>
-					用户显示名
-					<html:text property="realnameQry" />
+					角色描述
+					<html:text property="roleDescQry" />
 				</li>
 			</ul>
 			<html:submit property="query" value="查询" />
 			<html:submit property="del" value="批量删除" style="display:none" />
 			<input type="button" value="新增"
-				onclick="window.location.href='accountModify.do'" />
+				onclick="window.location.href='roleModify.do'" />
 			<table border="1" width="80%">
 				<thead>
 					<tr>
 						<th>
-							用户登录名
+							角色名称
 						</th>
 						<th>
-							用户显示名
+							角色描述
 						</th>
 						<th width="8%">
 							编辑
@@ -46,23 +46,21 @@
 						</th>
 					</tr>
 				</thead>
-				<c:if test="${not empty accountList}">
-					<c:forEach items="${accountList}" var="account">
+				<c:if test="${not empty roleList}">
+					<c:forEach items="${roleList}" var="role">
 						<tr>
 							<td>
-								<c:out value="${account.username }" />
+								<c:out value="${role.roleName }" />
 							</td>
 							<td>
-								<c:out value="${account.realname }" />
+								<c:out value="${role.roleDesc }" />
 							</td>
 							<td align="center">
-								<a href="accountModify.do?id=${account.id }">编辑</a>
+								<a href="roleModify.do?id=${role.id }">编辑</a>
 							</td>
 							<td align="center">
-								<c:if test="${account.username ne 'admin'}">
 									<a
-										href="javascript:if(confirm('是否确定删除这条记录？')){document.forms[0].deleteIds.value='${account.id}';document.forms[0].del.click();}">删除</a>
-								</c:if>
+										href="javascript:if(confirm('是否确定删除这条记录？')){document.forms[0].deleteIds.value='${role.id}';document.forms[0].del.click();}">删除</a>
 							</td>
 						</tr>
 					</c:forEach>

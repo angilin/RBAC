@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import com.rbac.common.BaseForm;
 import com.rbac.entity.SysAccount;
 import com.rbac.service.AccountService;
+import com.rbac.service.RoleService;
 import com.rbac.util.CommonUtils;
 
 /** 
@@ -38,7 +39,17 @@ public class AccountModifyForm extends BaseForm {
 	
 	private String id;
 	
+	private String roleId;
 	
+	
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -106,6 +117,9 @@ public class AccountModifyForm extends BaseForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.submit = null;
+		RoleService roleService = (RoleService)super.getBean("roleService");
+		request.setAttribute("roleList", roleService.getSysRoleList(null, null));
+		
 		if(CommonUtils.isNotBlank(request.getParameter("id"))){
 			this.setId(request.getParameter("id"));
 			AccountService accountService = (AccountService) super
@@ -115,6 +129,7 @@ public class AccountModifyForm extends BaseForm {
 			if(account!=null){
 				this.setUsername(account.getUsername());
 				this.setRealname(account.getRealname());
+				
 			}
 		}
 	}
