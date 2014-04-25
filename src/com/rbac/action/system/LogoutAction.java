@@ -23,10 +23,7 @@ import com.rbac.common.BaseAction;
  * @struts.action-forward name="success" path="/login.jsp"
  */
 public class LogoutAction extends BaseAction {
-	/*
-	 * Generated Methods
-	 */
-
+	
 	/** 
 	 * Method execute
 	 * @param mapping

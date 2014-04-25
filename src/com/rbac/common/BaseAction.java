@@ -9,7 +9,11 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class BaseAction extends Action {
 	
-
+	/**
+	 * 用该方法获取service，传入service的beanId
+	 * @param beanName
+	 * @return
+	 */
 	protected Object getBean(String beanName) {
 		return getApplicationContext().getBean(beanName);
 	}
@@ -35,6 +39,8 @@ public class BaseAction extends Action {
 	
 	/**
 	 * 得到当前登录用户信息
+	 * 可以使用 ThreadLocal 管理用户session
+	 * 参考http://blog.csdn.net/nan_jiang_/article/details/5055221
 	 * @param request
 	 * @return
 	 */

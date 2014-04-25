@@ -24,6 +24,9 @@ public class MvcRequestProcessor extends RequestProcessor{
 		return ctx;
 	}
 	
+	/**
+	 * struts控制器，用于权限验证
+	 */
 	public boolean processRoles(HttpServletRequest request,
 			HttpServletResponse response, ActionMapping mapping)
 			throws IOException, ServletException {

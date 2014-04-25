@@ -31,9 +31,6 @@ import com.rbac.util.PasswordHash;
  * @struts.action-forward name="success" path="/system/accountList.jsp"
  */
 public class AccountModifyAction extends BaseAction {
-	/*
-	 * Generated Methods
-	 */
 
 	/** 
 	 * Method execute

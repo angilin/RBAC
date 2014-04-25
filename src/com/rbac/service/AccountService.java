@@ -46,10 +46,10 @@ public class AccountService {
 	 * 删除用户
 	 * @param accountId
 	 */
-	public void deleteAccount(Long accountId){
+	public void deleteAccount(Long accountId, Long modifierId){
 		SysAccount account = this.getAccountById(accountId);
 		account.setIsDeleted(1);
-		account.setModifierId(1L);
+		account.setModifierId(modifierId);
 		account.setModifyTime(new Date());
 		accountDao.saveOrUpdate(account);
 	}

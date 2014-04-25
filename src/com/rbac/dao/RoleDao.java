@@ -14,6 +14,12 @@ import com.rbac.util.CommonUtils;
 @Component("roleDao")
 public class RoleDao extends BaseDaoSupport {
 
+	/**
+	 * 根据角色名称和角色描述查找角色列表
+	 * @param roleName
+	 * @param roleDesc
+	 * @return
+	 */
 	public List<SysRole> getSysRoleList(String roleName, String roleDesc){
 		Criteria crit = super.getSession().createCriteria(SysRole.class);
 		crit.add(Restrictions.eq("isDeleted", 0));

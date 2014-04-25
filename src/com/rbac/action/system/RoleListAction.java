@@ -8,14 +8,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.Action;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseAction;
 import com.rbac.form.system.RoleListForm;
-import com.rbac.service.AccountService;
 import com.rbac.service.RoleService;
 import com.rbac.util.CommonUtils;
 
@@ -45,7 +44,7 @@ public class RoleListAction extends BaseAction {
 				.getBean("roleService");
 		if (CommonUtils.isNotBlank(roleListForm.getDel())) {
 			roleService.deleteRole(Long.parseLong(roleListForm
-					.getDeleteIds()));
+					.getDeleteIds()), super.getCurrentAccountId(request));
 		}
 		List roleList = roleService.getSysRoleList(roleListForm
 				.getRoleNameQry(), roleListForm.getRoleDescQry());

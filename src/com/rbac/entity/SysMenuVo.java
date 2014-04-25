@@ -18,14 +18,17 @@ public class SysMenuVo implements Comparable{
 	private List<SysMenuVo> children = new ArrayList<SysMenuVo>();
 	
 
+	/**
+	 * 按orderSeq排序
+	 */
 	public int compareTo(Object menuVo){
 		if(menuVo instanceof SysMenuVo){
 			SysMenuVo vo = (SysMenuVo)menuVo;
-			if(vo!=null){
+			if(vo!=null && this.orderSeq!=null){
 				return this.orderSeq.compareTo(vo.getOrderSeq());
 			}
 		}
-		return 1;
+		return this.compareTo(menuVo);
 	}
 		
 	public Boolean getLeaf(){

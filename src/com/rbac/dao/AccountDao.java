@@ -16,7 +16,12 @@ import com.rbac.util.CommonUtils;
 @Component("accountDao")
 public class AccountDao extends BaseDaoSupport {
 
-	
+	/**
+	 * 根据用户登录名和用户显示名查找用户列表
+	 * @param username
+	 * @param realname
+	 * @return
+	 */
 	public List<SysAccount> getSysAccountList(String username, String realname){
 		Criteria crit = super.getSession().createCriteria(SysAccount.class);
 		crit.add(Restrictions.eq("isDeleted", 0));
@@ -29,7 +34,12 @@ public class AccountDao extends BaseDaoSupport {
 		return crit.list();
 	}
 	
-	
+	/**
+	 * 根据用户名查找用户，精确匹配，忽略传入的用户id对应的用户
+	 * @param username
+	 * @param ignoreAccountId
+	 * @return
+	 */
 	public List<SysAccount> getSysAccountListByExactUsername(String username, Long ignoreAccountId){
 		Criteria crit = super.getSession().createCriteria(SysAccount.class);
 		crit.add(Restrictions.eq("isDeleted", 0));
@@ -42,6 +52,11 @@ public class AccountDao extends BaseDaoSupport {
 		return crit.list();
 	}
 	
+	/**
+	 * 根据用户id查找用户关联角色列表
+	 * @param accountId
+	 * @return
+	 */
 	public List<SysAccountRole> getSysAccountRoleByAccountId(Long accountId){
 		Criteria crit = super.getSession().createCriteria(SysAccountRole.class);
 		crit.add(Restrictions.eq("isDeleted", 0));

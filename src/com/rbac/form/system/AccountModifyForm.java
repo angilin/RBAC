@@ -120,6 +120,7 @@ public class AccountModifyForm extends BaseForm {
 		RoleService roleService = (RoleService)super.getBean("roleService");
 		request.setAttribute("roleList", roleService.getSysRoleList(null, null));
 		
+		//编辑功能的反绑数据
 		if(CommonUtils.isNotBlank(request.getParameter("id"))){
 			this.setId(request.getParameter("id"));
 			AccountService accountService = (AccountService) super

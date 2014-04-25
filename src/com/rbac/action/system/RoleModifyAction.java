@@ -4,25 +4,20 @@
  */
 package com.rbac.action.system;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.struts.action.Action;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseAction;
-import com.rbac.entity.SysAccount;
 import com.rbac.entity.SysRole;
 import com.rbac.form.system.RoleModifyForm;
-import com.rbac.service.AccountService;
 import com.rbac.service.RoleService;
 import com.rbac.util.CommonUtils;
-import com.rbac.util.PasswordHash;
 
 /** 
  * MyEclipse Struts
@@ -32,9 +27,6 @@ import com.rbac.util.PasswordHash;
  * @struts.action path="/roleModify" name="roleModifyForm" input="/system/roleModify.jsp" scope="request" validate="true"
  */
 public class RoleModifyAction extends BaseAction {
-	/*
-	 * Generated Methods
-	 */
 
 	/** 
 	 * Method execute

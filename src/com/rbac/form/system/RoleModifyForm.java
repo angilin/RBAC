@@ -92,6 +92,8 @@ public class RoleModifyForm extends BaseForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.submit = null;
+		
+		//编辑功能的反绑数据
 		if(CommonUtils.isNotBlank(request.getParameter("id"))){
 			this.setId(request.getParameter("id"));
 			RoleService roleService = (RoleService) super
