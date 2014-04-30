@@ -11,6 +11,8 @@
     <form-bean name="roleListForm" type="com.rbac.form.system.RoleListForm" />
     <form-bean name="roleModifyForm" type="com.rbac.form.system.RoleModifyForm" />
     <form-bean name="pwdModifyForm" type="com.rbac.form.user.PwdModifyForm" />
+    <form-bean name="actionListForm" type="com.rbac.form.system.ActionListForm" />
+    <form-bean name="actionModifyForm" type="com.rbac.form.system.ActionModifyForm" />
 
 	</form-beans>
 
@@ -65,6 +67,22 @@
       path="/pwdModify"
       scope="request"
       type="com.rbac.action.user.PwdModifyAction" />
+    <action
+      attribute="actionListForm"
+      input="/system/actionList.jsp"
+      name="actionListForm"
+      path="/actionList"
+      scope="request"
+      type="com.rbac.action.system.ActionListAction" />
+    <action
+      attribute="actionModifyForm"
+      input="/system/actionModify.jsp"
+      name="actionModifyForm"
+      path="/actionModify"
+      scope="request"
+      type="com.rbac.action.system.ActionModifyAction">
+      <forward name="success" path="/actionList.do" />
+    </action>
 
 	</action-mappings>
 

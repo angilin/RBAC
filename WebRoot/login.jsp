@@ -23,9 +23,15 @@
 			document.forms[0].submit();
 		}
 	}
+	
+	function relocation(){
+		if(window.top!=window && '${error_msg}'!=''){
+			parent.location.href=window.location.href;
+		}
+	}
 </script>
 </head>
-<body>
+<body onload="relocation();">
 	<html:form action="login.do">
 		<div style="margin:0px auto;width:300px;">
 			<h1>RBAC系统</h1>
