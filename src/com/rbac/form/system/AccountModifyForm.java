@@ -4,6 +4,8 @@
  */
 package com.rbac.form.system;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -11,6 +13,8 @@ import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseForm;
 import com.rbac.entity.SysAccount;
+import com.rbac.entity.SysAccountRole;
+import com.rbac.entity.SysRole;
 import com.rbac.service.AccountService;
 import com.rbac.service.RoleService;
 import com.rbac.util.CommonUtils;
@@ -130,7 +134,13 @@ public class AccountModifyForm extends BaseForm {
 			if(account!=null){
 				this.setUsername(account.getUsername());
 				this.setRealname(account.getRealname());
-				
+				List<SysAccountRole> accountRoleList = accountService.getSysAccountRoleByAccountId(id);
+				if(accountRoleList.size()>0){
+					SysRole role = accountRoleList.get(0).getSysRole();
+					if(role!=null){
+						this.setRoleId(role.getId().toString());
+					}
+				}
 			}
 		}
 	}

@@ -41,7 +41,7 @@ public class AccountListAction extends BaseAction {
 		AccountService accountService = (AccountService) super
 			.getBean("accountService");
 		if(CommonUtils.isNotBlank(accountListForm.getDel())){
-			accountService.deleteAccount(Long.parseLong(accountListForm.getDeleteIds()),super.getCurrentAccountId(request));
+			accountService.deleteAccount(Long.parseLong(accountListForm.getDeleteIds()), super.getCurrentAccountId(request));
 		}
 		List accountList = accountService.getSysAccountList(accountListForm.getUsernameQry(), accountListForm.getRealnameQry());
 		request.setAttribute("accountList", accountList);

@@ -101,7 +101,7 @@
 				<li>
 					角色
 					<html:select property="roleId">
-						<html:options collection="roleList" property="id" labelProperty="roleName"/>
+						<html:options collection="roleList" property="id" labelProperty="roleNameDesc"/>
 					</html:select>
 				</li>
 			</ul>
