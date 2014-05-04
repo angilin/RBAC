@@ -13,6 +13,8 @@
     <form-bean name="pwdModifyForm" type="com.rbac.form.user.PwdModifyForm" />
     <form-bean name="actionListForm" type="com.rbac.form.system.ActionListForm" />
     <form-bean name="actionModifyForm" type="com.rbac.form.system.ActionModifyForm" />
+    <form-bean name="menuListForm" type="com.rbac.form.system.MenuListForm" />
+    <form-bean name="menuModifyForm" type="com.rbac.form.system.MenuModifyForm" />
 
 	</form-beans>
 
@@ -82,6 +84,22 @@
       scope="request"
       type="com.rbac.action.system.ActionModifyAction">
       <forward name="success" path="/actionList.do" />
+    </action>
+    <action
+      attribute="menuListForm"
+      input="/system/menuList.jsp"
+      name="menuListForm"
+      path="/menuList"
+      scope="request"
+      type="com.rbac.action.system.MenuListAction" />
+    <action
+      attribute="menuModifyForm"
+      input="/system/menuModify.jsp"
+      name="menuModifyForm"
+      path="/menuModify"
+      scope="request"
+      type="com.rbac.action.system.MenuModifyAction">
+      <forward name="success" path="/menuList.do" />
     </action>
 
 	</action-mappings>

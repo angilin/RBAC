@@ -65,5 +65,7 @@
                 <comment>排序字段</comment>
             </column>
         </property>
+        <property name="parentName" formula="(select t.name from sys_menu t where t.id=parent_id)"/>
+        <property name="childrenCount" formula="(select count(*) from sys_menu t where t.is_deleted=0 and t.parent_id=id)"/>
     </class>
 </hibernate-mapping>

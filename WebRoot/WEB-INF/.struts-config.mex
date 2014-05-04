@@ -18,6 +18,10 @@
   <StrutsActivity path="/user/pwdModify.jsp" location="50,850" dimension="153,53" />
   <StrutsActivity path="/system/actionList.jsp" location="950,850" dimension="156,53" />
   <StrutsActivity path="/system/actionModify.jsp" location="650,1050" dimension="178,53" />
+  <StrutsActivity path="/menuList.do" location="950,1050" dimension="268,104" />
+  <StrutsActivity path="/system/menuList.jsp" location="50,1250" dimension="153,53" />
+  <StrutsActivity path="/menuModify.do" location="350,1250" dimension="290,104" />
+  <StrutsActivity path="/system/menuModify.jsp" location="950,1250" dimension="175,53" />
   <StrutsTransition id="/roleModify.do,success,/roleList.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="191,702" />
@@ -28,13 +32,6 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="650,676" />
       <AbsolutePoint location="333,676" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/actionModify.do,success,/system/actionList.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="343,1118" />
-      <AbsolutePoint location="1028,1118" />
-      <AbsolutePoint location="1028,903" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/login.jsp,null,/login.do,2" routingType="0">
@@ -64,6 +61,20 @@
       <AbsolutePoint location="1083,754" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/menuModify.do,success,/menuList.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="495,1302" />
+      <AbsolutePoint location="1084,1102" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/system/menuList.jsp,null,/menuList.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="126,1250" />
+      <AbsolutePoint location="126,1199" />
+      <AbsolutePoint location="1084,1199" />
+      <AbsolutePoint location="1084,1154" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/actionModify.do,success,/actionList.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="196,1102" />
@@ -80,6 +91,12 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="950,476" />
       <AbsolutePoint location="611,476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/menuModify.do,success,/system/menuList.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="350,1288" />
+      <AbsolutePoint location="203,1288" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/system/accountModify.jsp,null,/accountModify.do,2" routingType="0">
@@ -106,6 +123,12 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="283,88" />
       <AbsolutePoint location="350,88" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/system/menuModify.jsp,null,/menuModify.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,1276" />
+      <AbsolutePoint location="640,1276" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>
