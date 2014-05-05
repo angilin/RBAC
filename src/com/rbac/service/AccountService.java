@@ -36,6 +36,9 @@ public class AccountService {
 		}
 		//添加新的用户角色管理
 		for(String roleIdStr : roleIdArray){
+			if(CommonUtils.isBlank(roleIdStr)){
+				continue;
+			}
 			Long roleId = CommonUtils.parseLong(roleIdStr);
 			SysRole role = accountDao.findById(SysRole.class, roleId);
 			SysAccountRole accountRole = new SysAccountRole();

@@ -35,8 +35,18 @@ public class SysRole implements java.io.Serializable {
 	private Set sysRoleMenus = new HashSet(0);
 	
 	private String roleNameDesc;
+	
+	private String menuIds;
 
 	// Constructors
+
+	public String getMenuIds() {
+		return menuIds;
+	}
+
+	public void setMenuIds(String menuIds) {
+		this.menuIds = menuIds;
+	}
 
 	/** default constructor */
 	public SysRole() {

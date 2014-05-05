@@ -15,6 +15,8 @@ public class SysMenuVo implements Comparable{
 	
 	private Long parentId;
 	
+	private Boolean checked;
+	
 	private List<SysMenuVo> children = new ArrayList<SysMenuVo>();
 	
 
@@ -82,6 +84,14 @@ public class SysMenuVo implements Comparable{
 
 	public void setParentId(Long parentId) {
 		this.parentId = parentId;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 }

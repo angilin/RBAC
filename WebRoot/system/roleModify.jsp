@@ -6,6 +6,8 @@
 <html>
 	<head>
 		<title>角色维护</title>
+		<!-- 复选树功能参考extjs4.1.1中examples/tree/check-tree.html -->
+		<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
 		<style type="text/css">
 		</style>
 		<script type="text/javascript" src="extjs/ext-all.js"></script>
@@ -17,10 +19,41 @@
 						alert('角色名称必须填写！');
 						return false;
 					}
+					var records = treePanel.getView().getChecked();
+                    menuIdArray = [];
+                    Ext.Array.each(records, function(rec){
+                        menuIdArray.push(rec.get('id'));
+                    });
+                    
+					menuIds.value = menuIdArray.join(',');
 				}
 				document.getElementById('submit').click();
 				return true;
 			}
+			
+			var treePanel;
+			
+	Ext.require([
+	    'Ext.tree.*',
+	    'Ext.data.*'
+	]);
+
+	Ext.onReady(function() {
+		var store = Ext.create("Ext.data.TreeStore", {				
+			model : "ctreemodel",
+			root: {id:"0",text:"菜单",expanded: true ,children:${menuJson}} 
+		});
+	
+		treePanel = Ext.create('Ext.tree.Panel', {
+		        id: 'tree',
+		        width: 300,
+		        autoScroll: true,
+		        renderTo: 'menuTree',
+		        store:  store
+		    });
+		  
+		treePanel.expandAll();
+	});
 			
 		</script>
 	</head>
@@ -38,6 +71,10 @@
 				<li>
 					角色描述
 					<html:text property="roleDesc" />
+				</li>
+				<li>
+					<div id="menuTree"></div>
+					<html:hidden property="menuIds"/>
 				</li>
 			</ul>
 		</html:form>

@@ -39,8 +39,18 @@ public class SysMenu implements java.io.Serializable {
 	private Integer childrenCount;
 	
 	private String actionIds;
+	
+	private Boolean checked = false;
 
 	// Constructors
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
 
 	public String getActionIds() {
 		return actionIds;

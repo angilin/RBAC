@@ -57,6 +57,7 @@ public class RoleModifyAction extends BaseAction {
 			}
 			role.setRoleDesc(roleModifyForm.getRoleDesc());
 			role.setRoleName(roleModifyForm.getRoleName());
+			role.setMenuIds(roleModifyForm.getMenuIds());
 			roleService.saveOrUpdateRole(role);
 			return mapping.findForward("success");
 		}

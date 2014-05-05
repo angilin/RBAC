@@ -66,6 +66,9 @@ public class MenuService {
 			menuDao.saveOrUpdate(menuAction);
 		}
 		for(String actionIdStr : actionIdArray){
+			if(CommonUtils.isBlank(actionIdStr)){
+				continue;
+			}
 			SysMenuAction menuAction = new SysMenuAction();
 			menuAction.setIsDeleted(0);
 			menuAction.setCreatorId(menu.getModifierId());

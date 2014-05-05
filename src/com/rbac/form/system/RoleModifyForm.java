@@ -92,19 +92,21 @@ public class RoleModifyForm extends BaseForm {
 	 */
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		this.submit = null;
-		
+		RoleService roleService = (RoleService) super
+			.getBean("roleService");
 		//编辑功能的反绑数据
 		if(CommonUtils.isNotBlank(request.getParameter("id"))){
 			this.setId(request.getParameter("id"));
-			RoleService roleService = (RoleService) super
-				.getBean("roleService");
 			Long id = Long.parseLong(this.getId());
 			SysRole role = roleService.getRoleById(id);
 			if(role!=null){
 				this.setRoleDesc(role.getRoleDesc());
 				this.setRoleName(role.getRoleName());
-				
+				request.setAttribute("menuJson", roleService.getCheckedMenuTree(id));
 			}
+		}
+		else{
+			request.setAttribute("menuJson", roleService.getCheckedMenuTree(null));
 		}
 	}
 }
