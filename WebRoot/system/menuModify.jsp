@@ -54,6 +54,13 @@
 						<html:options collection="menuList" property="id" labelProperty="name"/>
 					</html:select>
 				</li>
+				<li>
+					关联权限
+					<html:select property="actionId">
+						<html:option value=""></html:option>
+						<html:options collection="actionList" property="id" labelProperty="name"/>
+					</html:select>
+				</li>
 			</ul>
 		</html:form>
 	</body>

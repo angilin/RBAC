@@ -37,8 +37,18 @@ public class SysMenu implements java.io.Serializable {
 	private String parentName;
 	
 	private Integer childrenCount;
+	
+	private String actionIds;
 
 	// Constructors
+
+	public String getActionIds() {
+		return actionIds;
+	}
+
+	public void setActionIds(String actionIds) {
+		this.actionIds = actionIds;
+	}
 
 	public Integer getChildrenCount() {
 		return childrenCount;

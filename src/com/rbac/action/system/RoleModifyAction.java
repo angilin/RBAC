@@ -52,6 +52,8 @@ public class RoleModifyAction extends BaseAction {
 			else{
 				role.setCreatorId(super.getCurrentAccountId(request));
 				role.setCreateTime(new Date());
+				role.setModifierId(super.getCurrentAccountId(request));
+				role.setModifyTime(new Date());
 			}
 			role.setRoleDesc(roleModifyForm.getRoleDesc());
 			role.setRoleName(roleModifyForm.getRoleName());

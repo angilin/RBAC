@@ -14,6 +14,8 @@ import org.apache.struts.action.RequestProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.rbac.util.CommonUtils;
+
 
 public class MvcRequestProcessor extends RequestProcessor{
 
@@ -49,7 +51,7 @@ public class MvcRequestProcessor extends RequestProcessor{
 		//检查登录用户是否有权限访问该路径
 		UserDetail user = (UserDetail)session.getAttribute(MvcConstant.USER);
 		Set<String> permitActionSet = user.getPermitActionSet();
-		if(!permitActionSet.contains(mapping.getPath()+".do")){
+		if(CommonUtils.isBlank(mapping.getPath()) || !permitActionSet.contains(mapping.getPath().substring(1)+".do")){
 			request.setAttribute(MvcConstant.ERROR_MSG, "你没有权限访问该功能");
 			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);

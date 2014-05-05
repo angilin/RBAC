@@ -4,6 +4,8 @@
  */
 package com.rbac.form.system;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -11,6 +13,8 @@ import org.apache.struts.action.ActionMapping;
 
 import com.rbac.common.BaseForm;
 import com.rbac.entity.SysMenu;
+import com.rbac.entity.SysMenuAction;
+import com.rbac.service.ActionService;
 import com.rbac.service.MenuService;
 import com.rbac.util.CommonUtils;
 
@@ -34,6 +38,16 @@ public class MenuModifyForm extends BaseForm {
 	private String parentId;
 	
 	private String orderSeq;
+	
+	private String actionId;
+
+	public String getActionId() {
+		return actionId;
+	}
+
+	public void setActionId(String actionId) {
+		this.actionId = actionId;
+	}
 
 	public String getId() {
 		return id;
@@ -104,7 +118,10 @@ public class MenuModifyForm extends BaseForm {
 		this.submit = null;
 		MenuService menuService = (MenuService) super
 			.getBean("menuService");
+		ActionService actionService = (ActionService) super
+			.getBean("actionService");
 		request.setAttribute("menuList", menuService.getSysMenuList(null, null));
+		request.setAttribute("actionList", actionService.getSysActionList(null, null));
 
 		// 编辑功能的反绑数据
 		if (CommonUtils.isNotBlank(request.getParameter("id"))) {
@@ -116,6 +133,10 @@ public class MenuModifyForm extends BaseForm {
 				this.setUrl(menu.getUrl());
 				this.setParentId(menu.getParentId()!=null?menu.getParentId().toString():"");
 				this.setOrderSeq(menu.getOrderSeq()!=null?menu.getOrderSeq().toString():"");
+				List<SysMenuAction> menuActionList = menuService.getSysMenuActionByMenuId(id);
+				if(menuActionList.size()>0){
+					this.setActionId(menuActionList.get(0).getSysAction().getId().toString());
+				}
 			}
 		}
 	}

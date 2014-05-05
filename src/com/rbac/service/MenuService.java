@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rbac.dao.MenuDao;
+import com.rbac.entity.SysAction;
 import com.rbac.entity.SysMenu;
+import com.rbac.entity.SysMenuAction;
+import com.rbac.util.CommonUtils;
 
 @Service("menuService")
 public class MenuService {
@@ -53,5 +56,33 @@ public class MenuService {
 	 */
 	public void saveOrUpdateMenu(SysMenu menu){
 		menuDao.saveOrUpdate(menu);
+		String actionIds = menu.getActionIds();
+		String[] actionIdArray = actionIds.split(",");
+		List<SysMenuAction> menuActionList = menuDao.getSysMenuActionByMenuId(menu.getId());
+		for(SysMenuAction menuAction : menuActionList){
+			menuAction.setIsDeleted(1);
+			menuAction.setModifierId(menu.getModifierId());
+			menuAction.setModifyTime(new Date());
+			menuDao.saveOrUpdate(menuAction);
+		}
+		for(String actionIdStr : actionIdArray){
+			SysMenuAction menuAction = new SysMenuAction();
+			menuAction.setIsDeleted(0);
+			menuAction.setCreatorId(menu.getModifierId());
+			menuAction.setCreateTime(new Date());
+			menuAction.setSysMenu(menu);
+			SysAction action = menuDao.findById(SysAction.class, CommonUtils.parseLong(actionIdStr));
+			menuAction.setSysAction(action);
+			menuDao.saveOrUpdate(menuAction);
+		}
+	}
+	
+	/**
+	 * 根据菜单id查找菜单关联权限列表
+	 * @param menuId
+	 * @return
+	 */
+	public List<SysMenuAction> getSysMenuActionByMenuId(Long menuId){
+		return menuDao.getSysMenuActionByMenuId(menuId);
 	}
 }

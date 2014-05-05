@@ -68,7 +68,7 @@ p {
 	        tabPanel.add({
 	        	id: id,
 	            closable: closable,
-	            html: '<iframe id="'+name+'" src="'+url.substr(1)+'" frameborder="0" height="100%" width="100%"></iframe>',
+	            html: '<iframe id="'+name+'" src="'+url+'" frameborder="0" height="100%" width="100%"></iframe>',
 	            title: name
 	        }).show();
 	    }

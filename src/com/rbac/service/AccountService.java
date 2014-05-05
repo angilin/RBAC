@@ -24,29 +24,28 @@ public class AccountService {
 	 */
 	public void saveOrUpdateAccount(SysAccount account){
 		accountDao.saveOrUpdate(account);
-		if(CommonUtils.isNotBlank(account.getRoleIds())){
-			String roleIds = account.getRoleIds();
-			String[] roleIdArray = roleIds.split(",");
-			//删除旧的用户角色管理
-			List<SysAccountRole> accountRoleList = accountDao.getSysAccountRoleByAccountId(account.getId());
-			for(SysAccountRole accountRole : accountRoleList){
-				accountRole.setIsDeleted(1);
-				accountRole.setModifierId(account.getId());
-				accountRole.setModifyTime(new Date());
-				accountDao.saveOrUpdate(accountRole);
-			}
-			//添加新的用户角色管理
-			for(String roleIdStr : roleIdArray){
-				Long roleId = CommonUtils.parseLong(roleIdStr);
-				SysRole role = accountDao.findById(SysRole.class, roleId);
-				SysAccountRole accountRole = new SysAccountRole();
-				accountRole.setCreatorId(account.getId());
-				accountRole.setCreateTime(new Date());
-				accountRole.setSysAccount(account);
-				accountRole.setSysRole(role);
-				accountDao.saveOrUpdate(accountRole);
-			}
+		String roleIds = account.getRoleIds();
+		String[] roleIdArray = roleIds.split(",");
+		//删除旧的用户角色管理
+		List<SysAccountRole> accountRoleList = accountDao.getSysAccountRoleByAccountId(account.getId());
+		for(SysAccountRole accountRole : accountRoleList){
+			accountRole.setIsDeleted(1);
+			accountRole.setModifierId(account.getModifierId());
+			accountRole.setModifyTime(new Date());
+			accountDao.saveOrUpdate(accountRole);
 		}
+		//添加新的用户角色管理
+		for(String roleIdStr : roleIdArray){
+			Long roleId = CommonUtils.parseLong(roleIdStr);
+			SysRole role = accountDao.findById(SysRole.class, roleId);
+			SysAccountRole accountRole = new SysAccountRole();
+			accountRole.setCreatorId(account.getModifierId());
+			accountRole.setCreateTime(new Date());
+			accountRole.setSysAccount(account);
+			accountRole.setSysRole(role);
+			accountDao.saveOrUpdate(accountRole);
+		}
+		
 	}
 	
 	/**

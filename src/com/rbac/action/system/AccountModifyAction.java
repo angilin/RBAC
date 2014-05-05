@@ -56,12 +56,12 @@ public class AccountModifyAction extends BaseAction {
 			else{
 				account.setCreatorId(super.getCurrentAccountId(request));
 				account.setCreateTime(new Date());
+				account.setModifierId(super.getCurrentAccountId(request));
+				account.setModifyTime(new Date());
 			}
 			account.setUsername(accountModifyForm.getUsername());
 			account.setRealname(accountModifyForm.getRealname());
-			if(CommonUtils.isNotBlank(accountModifyForm.getRoleId())){
-				account.setRoleIds(accountModifyForm.getRoleId());
-			}
+			account.setRoleIds(accountModifyForm.getRoleId());
 			if(CommonUtils.isNotBlank(accountModifyForm.getPassword())){
 				try {
 					String pwdHash = PasswordHash.createHash(accountModifyForm.getPassword().trim());

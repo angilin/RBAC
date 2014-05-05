@@ -58,11 +58,14 @@ public class MenuModifyAction extends BaseAction {
 			else{
 				menu.setCreatorId(super.getCurrentAccountId(request));
 				menu.setCreateTime(new Date());
+				menu.setModifierId(super.getCurrentAccountId(request));
+				menu.setModifyTime(new Date());
 			}
 			menu.setName(menuModifyForm.getName());
 			menu.setUrl(menuModifyForm.getUrl());
 			menu.setParentId(CommonUtils.parseLong(menuModifyForm.getParentId()));
 			menu.setOrderSeq(CommonUtils.parseInteger(menuModifyForm.getOrderSeq()));
+			menu.setActionIds(menuModifyForm.getActionId());
 			menuService.saveOrUpdateMenu(menu);
 			return mapping.findForward("success");
 		}

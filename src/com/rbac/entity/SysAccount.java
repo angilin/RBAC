@@ -161,6 +161,10 @@ public class SysAccount implements java.io.Serializable {
 		return roleIds;
 	}
 
+	/**
+	 * 用于保存多个roleId，多个roleId之间用半角逗号分隔
+	 * @param roleIds
+	 */
 	public void setRoleIds(String roleIds) {
 		this.roleIds = roleIds;
 	}
