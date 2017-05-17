@@ -5,6 +5,7 @@ RBAC项目
 可用于扩展开发<br/>
 <br/>
 数据库名rbac<br/>
+系统登录默认用户名admin，密码1<br/>
 <br/>
 开发工具：MyEclipse<br/>
 数据库：MySQL<br/>
